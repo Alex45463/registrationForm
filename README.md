@@ -1,5 +1,5 @@
 # PHP Registration/Login Form
-
+Registration and Login Form for school assignment using bcrypt algorithm with cost 8 to hash passwords
 
 ## **BACK-END:**
 
