@@ -20,33 +20,53 @@
         </header>
         <form>
             <div class="input-section name-section">
-                <input class="name" type="text" placeholder="ENTER YOUR NAME HERE" />
-                <div class="animated-button"><span class="icon-paper-plane"><i class="far fa-envelope"></i></span><span class="next-button name"><i class="fa fa-arrow-up"></i></span></div>
+                <input class="name" type="text" placeholder="ENTER YOUR NAME HERE"  autocomplete="off"/>
+                <div class="animated-button">
+                    <span class="icon-name"><i class="far fa-address-card"></i></span>
+                    <span class="next-button name"><i class="fa fa-arrow-up"></i></span>
+                </div>
             </div>
             <div class="input-section surname-section folded">
-                <input class="surname" type="text" placeholder="ENTER YOUR SURNAME HERE" />
+                <input class="surname" type="text" placeholder="ENTER YOUR SURNAME HERE" autocomplete="off"/>
                 <div class="animated-button">
-                    <span class="icon-address-card"><i class="far fa-address-card"></i></span>
+                    <span class="icon-surname"><i class="far fa-address-card"></i></span>
                     <span class="next-button surname"><i class="fa fa-arrow-up"></i></span>
                 </div>
             </div>
             <div class="input-section email-section folded">
-                <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" />
+                <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE"  autocomplete="off"/>
                 <div class="animated-button">
                     <span class="icon-email"><i class="far fa-envelope"></i></span>
                     <span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
             </div>
             <div class="input-section password-section folded">
-                <input class="password" type="password" placeholder="ENTER YOUR PASSWORD HERE" autocomplete="new-password"/>
-                <div class="animated-button"><span class="icon-lock"><i class="fa fa-lock"></i></span><span class="next-button password"><i class="fa fa-arrow-up"></i></span></div>
+                <input class="password" type="password" placeholder="ENTER YOUR PASSWORD HERE"  autocomplete="off"/>
+                <div class="animated-button">
+                    <span class="icon-lock"><i class="fa fa-lock"></i></span>
+                    <span class="next-button password"><i class="fa fa-arrow-up"></i></span>
+                </div>
             </div>
             <div class="input-section repeat-password-section folded">
-                <input class="repeat-password" type="password" placeholder="REPEAT YOUR PASSWORD HERE"/>
+                <input class="repeat-password" type="password" placeholder="REPEAT YOUR PASSWORD HERE"  autocomplete="off"/>
                 <div class="animated-button"><span class="icon-repeat-lock"><i class="fa fa-lock"></i></span><span class="next-button repeat-password"><i class="fa fa-paper-plane"></i></span></div>
             </div>
+            <div class="input-section preference-section folded">
+                <select class="preference">
+                    <option value="1">Tablet</option>
+                    <option value="2">Computer</option>
+                    <option value="3">Smartphone</option>
+                </select>
+                <div class="animated-button">
+                    <span class="icon-preference"><i class="fa fa-lock"></i></span>
+                    <span class="next-button preference"><i class="fa fa-paper-plane"></i></span>
+                </div>
+            </div>
             <div class="input-section tel-section folded">
-                <input class="tel" type="tel" placeholder="REPEAT YOUR PHONE NUMBER HERE"/>
-                <div class="animated-button"><span class="icon-tel"><i class="fas fa-phone"></i></span><span class="next-button tel"><i class="fa fa-paper-plane"></i></span></div>
+                <input class="tel" type="tel" placeholder="REPEAT YOUR PHONE NUMBER HERE"  autocomplete="off"/>
+                <div class="animated-button">
+                    <span class="icon-tel"><i class="fas fa-phone"></i></span>
+                    <span class="next-button tel"><i class="fa fa-paper-plane"></i></span>
+                </div>
             </div>
             <div class="success">
                 <p>ACCOUNT CREATED</p>

@@ -4,9 +4,9 @@ let password;
 $('.name').on("change keyup paste",
   function(){
     if($(this).val()){
-      $('.icon-paper-plane').addClass("next");
+      $('.icon-name').addClass("next");
     } else {
-      $('.icon-paper-plane').removeClass("next");
+      $('.icon-name').removeClass("next");
     }
   }
 );
@@ -29,9 +29,9 @@ $('.next-button.name').click(
 $('.surname').on("change keyup paste",
   function(){
     if($(this).val()){
-      $('.icon-address-card').addClass("next");
+      $('.icon-surname').addClass("next");
     } else {
-      $('.icon-address-card').removeClass("next");
+      $('.icon-surname').removeClass("next");
     }
   }
 );
@@ -123,6 +123,31 @@ $('.next-button.repeat-password').click(
   function(){
     console.log("Something repeat-password");
     $('.repeat-password-section').addClass("fold-up");
+    $('.preference-section').removeClass("folded");
+  }
+);
+
+//\preference section
+$('.preference').change(
+  function(){
+    if($(this).val()){
+      $('.icon-preference').addClass("next");
+    } else {
+      $('.icon-preference').removeClass("next");
+    }
+  }
+);
+
+$('.next-button').hover(
+  function(){
+    $(this).css('cursor', 'pointer');
+  }
+);
+
+$('.next-button.preference').click(
+  function(){
+    console.log("Something preference");
+    $('.preference-section').addClass("fold-up");
     $('.tel-section').removeClass("folded");
   }
 );
