@@ -98,17 +98,17 @@ $('.next-button.password').click(
     
     console.log("Something password");
     $('.password-section').addClass("fold-up");
-    $('.repeat-password-section').removeClass("folded");
+    $('.billing-section').removeClass("folded");
   }
 );
 
-//repeat password section
-$('.repeat-password').on("change keyup paste",
+//billing section
+$('.billing').change(
   function(){
     if($(this).val()){
-      $('.icon-repeat-lock').addClass("next");
+      $('.icon-billing').addClass("next");
     } else {
-      $('.icon-repeat-lock').removeClass("next");
+      $('.icon-billing').removeClass("next");
     }
   }
 );
@@ -119,15 +119,15 @@ $('.next-button').hover(
   }
 );
 
-$('.next-button.repeat-password').click(
+$('.next-button.billing').click(
   function(){
-    console.log("Something repeat-password");
-    $('.repeat-password-section').addClass("fold-up");
+    console.log("Something billing");
+    $('.billing-section').addClass("fold-up");
     $('.preference-section').removeClass("folded");
   }
 );
 
-//\preference section
+//preference section
 $('.preference').change(
   function(){
     if($(this).val()){
@@ -163,10 +163,48 @@ $('.tel').on("change keyup paste",
   }
 );
 
+$('.next-button').hover(
+  function(){
+    $(this).css('cursor', 'pointer');
+  }
+);
+
 $('.next-button.tel').click(
   function(){
     console.log("Something tel");
     $('.tel-section').addClass("fold-up");
-    $('.success').css("marginTop", 0);
+    $('.newsletter-section').removeClass("folded");
+    $('.newsletter').trigger("classChange");
   }
 );
+
+//newsletter section
+$('.newsletter').on("classChange",
+  function(){
+    $('.icon-newsletter').addClass("next");
+  }
+);
+
+$('.next-button.newsletter').click(
+  function(){
+    console.log("Something newsletter");
+    $('.newsletter-section').addClass("fold-up");
+    $('.success').css("marginTop", 0);
+    setTimeout(() => {
+      $('#submit').click();
+    }, 700);
+  }
+);
+
+
+
+$('input').keypress(function (e) {
+  // e.preventDefault();
+  var key = e.which;
+  if(key == 13)  // the enter key code
+    {
+      if($(this).val() !== "")
+        $(this).parent().find("span")[1].click();
+     return false; 
+   }
+ }); 
