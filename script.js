@@ -1,5 +1,3 @@
-let password;
-
 //name section
 $('.name').on("change keyup paste",
   function(){
@@ -46,6 +44,31 @@ $('.next-button.surname').click(
   function(){
     console.log("Something surname");
     $('.surname-section').addClass("fold-up");
+    $('.username-section').removeClass("folded");
+  }
+);
+
+//username section
+$('.username').on("change keyup paste",
+  function(){
+    if($(this).val()){
+      $('.icon-username').addClass("next");
+    } else {
+      $('.icon-username').removeClass("next");
+    }
+  }
+);
+
+$('.next-button').hover(
+  function(){
+    $(this).css('cursor', 'pointer');
+  }
+);
+
+$('.next-button.username').click(
+  function(){
+    console.log("Something username");
+    $('.username-section').addClass("fold-up");
     $('.email-section').removeClass("folded");
   }
 );
@@ -198,13 +221,11 @@ $('.next-button.newsletter').click(
 
 
 
-$('input').keypress(function (e) {
-  // e.preventDefault();
-  var key = e.which;
-  if(key == 13)  // the enter key code
-    {
-      if($(this).val() !== "")
-        $(this).parent().find("span")[1].click();
-     return false; 
-   }
- }); 
+//prevent submit on enter
+$('html').keydown(function (e) {
+  var key = e.keyCode || e.which; 
+  if(key == 13 || key == 9)  // the enter key code
+  {
+    return false; 
+  }
+ });

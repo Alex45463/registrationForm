@@ -15,7 +15,7 @@
     print_r($_POST);
     if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['username']) && isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['preference']) && isset($_POST['billing_method']) && isset($_POST['telephone'])){
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = $_POST["password"];-
         $username = $_POST["username"];
         $name = $_POST["name"];
         $surname = $_POST["surname"];
@@ -77,6 +77,13 @@
                     <span class="next-button surname"><i class="fa fa-arrow-up"></i></span>
                 </div>
             </div>
+            <div class="input-section username-section folded">
+                <input class="username" type="text" name='username' placeholder="ENTER YOUR USERNAME HERE" autocomplete="off"/>
+                <div class="animated-button">
+                    <span class="icon-username"><i class="far fa-address-card"></i></span>
+                    <span class="next-button username"><i class="fa fa-arrow-up"></i></span>
+                </div>
+            </div>
             <div class="input-section email-section folded">
                 <input class="email" type="text" name='email' placeholder="ENTER YOUR E-MAIL HERE"  autocomplete="off"/>
                 <div class="animated-button">
@@ -84,7 +91,7 @@
                     <span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
             </div>
             <div class="input-section password-section folded">
-                <input class="password" type="password" name='email' placeholder="ENTER YOUR PASSWORD HERE"  autocomplete="off"/>
+                <input class="password" type="password" name='password' placeholder="ENTER YOUR PASSWORD HERE"  autocomplete="off"/>
                 <div class="animated-button">
                     <span class="icon-lock"><i class="fa fa-lock"></i></span>
                     <span class="next-button password"><i class="fa fa-arrow-up"></i></span>
@@ -92,7 +99,7 @@
             </div>
             <div class="input-section billing-section folded">
                 <select class="billing" name='billing_method'>
-                    <option disabled selected value style="display: none;"> -- Select an option -- </option>
+                    <option value="null" disabled selected style="display: none;"> -- Select an option -- </option>
                     <option value="Paypal">Paypal</option>
                     <option value="Carta di credito">Carta di credito</option>
                     <option value="Bonifico">Bonifico</option>
@@ -105,7 +112,7 @@
             </div>
             <div class="input-section preference-section folded">
                 <select class="preference" name='preference'>
-                    <option disabled selected value style="display: none;"> -- Select an option -- </option>
+                    <option value="null" disabled selected style="display: none;"> -- Select an option -- </option>
                     <option value="Tablet">Tablet</option>
                     <option value="Computer">Computer</option>
                     <option value="Smartphone">Smartphone</option>
@@ -143,6 +150,5 @@
 </body>
 <?php
     }
-    echo 'tes';
 ?>
 </html>
