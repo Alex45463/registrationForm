@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>SITO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="./styles/index.css">
+    <style>
+        .register:hover{
+            background: linear-gradient(45deg, #9999f8, transparent);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back">
+       <div class="registration-form">
+        {% if success %}
+            <header style="background:#36f336;" class="login">
+                <h1> SIGNED UP SUCCESSFULLY : </h1>
+            </header>
+            <a href="login.php">
+                <header class="register">
+                    <h1>Sign In</h1>
+                </header>
+            </a>
+        {% else %}
+            {% if missing %}
+                <header style="background:linear-gradient(45deg, #ff0909, #f504048f);" class="login">
+                    <h1> MISSING DATA: </h1>
+                    {% for field in missing %}
+                        <p> {{ field }} </p>
+                    {% endfor %}
+                </header>
+            {% endif %}
+            
+            {% if duplicate %}
+                <header style="background:linear-gradient(45deg, #ff0909, #f504048f);" class="login">
+                    <h1> DUPLICATE DATA: </h1>
+                    {% for field in duplicate %}
+                        <p> {{ field }} </p>
+                    {% endfor %}
+                </header>
+            {% endif %}
+
+            {% if invalidData %}
+                <header style="background:linear-gradient(45deg, #ff0909, #f504048f);" class="login">
+                    <h1> INVALID DATA: </h1>
+                    {% for field in invalidData %}
+                        <p> {{ field }} </p>
+                    {% endfor %}
+                </header>
+            {% endif %}
+
+            {% if wrongCredentials %}
+                <header style="background:linear-gradient(45deg, #ff0909, #f504048f);" class="login">
+                    <h1> WRONG CREDENTIALS </h1>
+                </header>
+            {% endif %}
+
+            {% if notFound %}
+                <header style="background:linear-gradient(45deg, #ff0909, #f504048f);" class="login">
+                    <h1> {{ notFound }} NOT FOUND </h1>
+                </header>
+            {% endif %}
+
+            {% if login %}
+                <a href="login.php">
+                    <header class="register">
+                        <h1>Return to Sign In</h1>
+                    </header>
+                </a>
+            {% else %}
+                <a href="register.php">
+                    <header class="register">
+                        <h1>Return to Sign Up</h1>
+                    </header>
+                </a>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

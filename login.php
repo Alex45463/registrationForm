@@ -1,57 +1,47 @@
 <?php
-    $logged = false;
-    if (isset($_POST["user"]) && isset($_POST["password"])){
-        $user = $_POST["user"];
-        $user1 = $_POST["user"];
-        $password = $_POST["password"];
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/util/database.php';
 
-        $mysqli = new mysqli("localhost", "alex0", "", "my_alex0");
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+$loader = new FilesystemLoader(__DIR__ . '/templates');
+$twig = new Environment($loader);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = preventXSS($_POST, true);
+
+    $missing = checkMissingData($data, true);
+    if(!empty($missing)){
+        echo $twig->render('error.html.twig', ['missing' => $missing, 'login' => "true"]);
+        return;
+    }
+    // Connect to the DB
+    $mysqli = new mysqli('localhost', 'root', 'root', 'my_alex0');
+
+    // Verify connection to the DB
+    if ($mysqli->connect_error) {
+        die('Connection failed: ' . $mysqli->connect_error);
+    }
+
+    $response = loginUser($data, $mysqli);
+    if(!is_null($response))
+        if($response === "User not Found")
+            echo $twig->render('error.html.twig', ['notFound' => 'USER', 'login' => "true"]);
+        else {
+            $response = (array) $response;
+            unset($response['password_hash']);
+            unset($response['ID']);
+            unset($response['created_at']);
+            echo $twig->render('index.html.twig', ['data' => $response]);
+        }
+    else
+        echo $twig->render('error.html.twig', ['wrongCredentials' => "Password", 'login' => "true"]);
         
-        if ($mysqli->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-        }
+    $mysqli->close();
+    return;
+}
 
-        $stmt = $mysqli->prepare("SELECT * FROM `form` WHERE username=? OR email=? ;");
-        if ( false===$stmt ) {
-            die('prepare() failed: '.$mysqli->error);
-        }
+echo $twig->render('login.html.twig');
 
-        $result = $stmt->bind_param("ss", $user, $user1);
-        if ( false===$result ) {
-            die('bind() failed: '.$stmt->error);
-        }
-
-        $result = $stmt->execute();
-        if ( false===$result ) {
-            die('execute() failed: '.$stmt->error);
-        }
-
-        $result = $stmt->get_result();
-        $row = $result->fetch_object();
-        if($row){
-            $logged = true;
-            print_r($row);
-        }
-
-        $stmt->close();
-        $mysqli->close();
-    }
-    if($logged){
-        printf("logged as %s<br>", $row->username);
-    }
-    else {
-?>
-    <form action="login.php" method="post">
-    <div id="user">
-        <a> Username/Email: </a>
-        <input type="text" name="user" required><br>
-    </div>
-    <div id="password">
-        <a> Password: </a>
-        <input type="password" name="password" required><br>
-    </div>
-    <input type="submit" value="Submit">
-</form>
-<?php
-    }
 ?>

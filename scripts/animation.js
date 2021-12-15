@@ -118,10 +118,16 @@ $('.next-button').hover(
 
 $('.next-button.password').click(
   function(){
-    
     console.log("Something password");
     $('.password-section').addClass("fold-up");
-    $('.billing-section').removeClass("folded");
+	if($('.password').attr('login')=== "true") {
+		$('.success').css("marginTop", 0);
+		setTimeout(() => {
+		  $('#submit').click();
+		}, 700);
+	} else {
+		$('.billing-section').removeClass("folded");
+	}
   }
 );
 
@@ -218,8 +224,6 @@ $('.next-button.newsletter').click(
     }, 700);
   }
 );
-
-
 
 //prevent submit on enter
 $('html').keydown(function (e) {
