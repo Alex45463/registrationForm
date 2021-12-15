@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>SITO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="./styles/registration.css">
+</head>
+
+<body>
+	<div class="back"></div>
+	<div class="registration-form">
+		<header>
+			<h1>Sign In</h1>
+			<p>Fill in all informations</p>
+		</header>
+		<form action="./login.php" method="POST">
+			<div class="input-section email-section">
+				<input class="email" type="text" name='email' placeholder="ENTER YOUR E-MAIL OR USERNAME HERE"  autocomplete="off"/>
+				<div class="animated-button">
+					<span class="icon-email"><i class="far fa-envelope"></i></span>
+					<span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
+			</div>
+			<div class="input-section password-section folded">
+				<input class="password" type="password" name='password' login='true' placeholder="ENTER YOUR PASSWORD HERE"  autocomplete="off"/>
+				<div class="animated-button">
+					<span class="icon-lock"><i class="fa fa-lock"></i></span>
+					<span class="next-button password"><i class="fa fa-arrow-up"></i></span>
+				</div>
+			</div>
+			<div class="success">
+				<p>REQUEST SENDED</p>
+			</div>
+			<input type="submit" id="submit" style="display: none;" value="">
+		</form>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./scripts/animation.js"></script>
+</body>
+ 
+</html>

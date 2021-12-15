@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>WEBSITE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="./styles/index.css">
+    <style>
+        .login:hover{
+            background-color: wheat;
+        }
+        .register:hover{
+            background-color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">
+        <div class="registration-form">
+            {% if data %}
+                <a>
+                    <header class="login">
+                        <h1>DATA:</h1>
+                    </header>
+                </a>
+                <a>
+                    <header>
+                        {% for key, value in data %}
+                            <p>{{ key }} : {{ value|e }}</p>
+                        {% endfor %}
+                    </header>
+                </a>
+                <a href="index.php">
+                    <header class="register">
+                        <h1> EXIT </h1>
+                    </header>
+                </a>
+            {% else %}
+                <a href="login.php">
+                    <header class="login">
+                        <h1>Sign In</h1>
+                        <p>For existing user</p>
+                    </header>
+                </a>
+                <a href="register.php">
+                    <header class="register">
+                        <h1>Sign Up</h1>
+                        <p>New User? Sign up</p>
+                    </header>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
