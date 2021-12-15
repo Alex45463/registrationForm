@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $invalid = checkValidData($data);
     if(!empty($invalid)){
-        echo $twig->render('error.html.twig', ['invalidData' => $invalid);
+        echo $twig->render('error.html.twig', ['invalidData' => $invalid]);
         return;
     }
 
