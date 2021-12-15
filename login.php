@@ -26,12 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Connection failed: ' . $mysqli->connect_error);
     }
     
-    $invalid = checkValidData($data);
-    if(!empty($invalid)){
-        echo $twig->render('error.html.twig', ['invalidData' => $invalid, 'login' => "true"]);
-        return;
-    }
-    
     $response = loginUser($data, $mysqli);
     if(!is_null($response))
         if($response === "User not Found")
