@@ -2,7 +2,7 @@
 
 Registration and Login Form for school assignment using bcrypt algorithm with cost 8 to hash passwords
 
-## **LINK:** [Altervista website](https://alex0.altervista.org/test/login.php)
+## **LINK:** [Altervista website](https://alex0.altervista.org/test)
 
 ## **BACK-END:**
 
