@@ -16,6 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $twig->render('error.html.twig', ['missing' => $missing]);
         return;
     }
+
+    $invalid = checkValidData($data);
+    if(!empty($invalid)){
+        echo $twig->render('error.html.twig', ['invalidData' => $invalid);
+        return;
+    }
+
     // Connect to the DB
     $mysqli = new mysqli('localhost', 'root', 'root', 'my_alex0');
 
