@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $twig->render('error.html.twig', ['missing' => $missing, 'login' => "true"]);
         return;
     }
+
+
     // Connect to the DB
     $mysqli = new mysqli('localhost', 'root', 'root', 'my_alex0');
 
@@ -23,7 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($mysqli->connect_error) {
         die('Connection failed: ' . $mysqli->connect_error);
     }
-
+    
+    $invalid = checkValidData($data);
+    if(!empty($invalid)){
+        echo $twig->render('error.html.twig', ['invalidData' => $invalid, 'login' => "true"]);
+        return;
+    }
+    
     $response = loginUser($data, $mysqli);
     if(!is_null($response))
         if($response === "User not Found")
