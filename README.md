@@ -8,6 +8,8 @@ Registration and Login Form for school assignment using bcrypt algorithm with co
 
 **Made with PHP and Twig HTML Engine**\
 
+Twig allow to create template of html (see /templates) and to render them
+
 ## **DATABASE:**
 
 **SQL query used to create the table of the form:**
@@ -48,6 +50,12 @@ after that you can simply run a php server, for example using php command with t
 ```bash
     php -S {address}:{port}
 ```
+
+## **TO DO:**
+
+- **Add JWT TOKEN auth**
+- **Add possibility to get back to another page during the sign in or the sign up**
+- **Sign in with Google**  
 
 <footer>
 <p style="float:left; width: 20%;">
